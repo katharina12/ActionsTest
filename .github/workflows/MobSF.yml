@@ -40,4 +40,18 @@ jobs:
         with:
           java-version: '12.x'
           
+      - name: Set-up Flutter
+        uses: subosito/flutter-actions@v1
+        with:
+          flutter-version: '1.9.1+hotfix.6'
+          
+      - name: Flutter install Dependecies
+      - run: flutter pub get
+      
+      - name: Flutter Test
+        run: flutter test
+      
+      - name: Flutter Build
+        run: flutter build apk
+          
       
