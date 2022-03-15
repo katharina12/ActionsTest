@@ -34,33 +34,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-    
-      - name: Set-up Java
-        uses: actions/setup-java@v1
-        with:
-          java-version: '12.x'
           
-      - name: Set-up Flutter
-        uses: subosito/flutter-action@v1
-        with:
-          flutter-version: '1.9.1+hotfix.6'
-          
-      #- name: Flutter install Dependecies
-       # run: flutter pub get
-      
-      #- name: Flutter Test
-       # run: flutter test
-      
-      #- name: Flutter Build
-       # run: flutter build apk
-       
       - name: mobsfscan
         uses: MobSF/mobsfscan@main
         with:
-          args: '. --sarif --output results.sarif || true'
-      - name: Upload mobsfscan report
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: results.sarif
-          
-      
+          args: '. --json'
